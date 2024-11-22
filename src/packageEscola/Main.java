@@ -9,6 +9,9 @@ interface Printable {
 }
 
 public class Main {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -48,35 +51,40 @@ public class Main {
         scanner.close();
 
         System.out.println("_____________________________________");
-        Estudante estudante1 = new Estudante("Joao Pereira",0000011, "ruaX",74981100);
-        Estudante estudante2 = new Estudante("Ana Costa",0000021, "ruay",74981200);
-        Estudante estudante3 = new Estudante("Lucas Almeida",0000031, "ruak",74981300);
-        Estudante estudante4 = new Estudante("Laura Santos",0000041, "ruaz",74981400);
-        Estudante estudante5 = new Estudante("Pedro Lima",0000051, "ruaX",74981500);
+        ArrayList<Estudante> estudantes = new ArrayList<>();
+        
+        estudantes.add(new Estudante("Joao Pereira",0000011, "ruaX",74981100));
+        estudantes.add(new Estudante("Ana Costa",0000021, "ruay",74981200));
+        estudantes.add(new Estudante("Lucas Almeida",0000031, "ruak",74981300));
+        estudantes.add(new Estudante("Laura Santos",0000041, "ruaz",74981400));
+        estudantes.add(new Estudante("Pedro Lima",0000051, "ruaX",74981500));
 
-        estudante1.definirNotas(7,3,5);
-        estudante1.definirNotas(7,3,5);
-        estudante1.definirNotas(7,3,5);
-        estudante1.definirNotas(7,3,5);
-        estudante1.definirNotas(7,3,5);
 
-        estudante1.print();
-        estudante2.print();
-        estudante3.print();
-        estudante4.print();
-        estudante5.print();
-     
+        estudantes.get(0).definirNotas(3f,2f,1f);
+        estudantes.get(1).definirNotas(2f,5f,6f);
+        estudantes.get(2).definirNotas(5f,5f,3f);
+        estudantes.get(3).definirNotas(1f,4f,7f);
+        estudantes.get(4).definirNotas(81f,6f,7f);
+
+        System.out.println("Lista Geral de Estudantes:");
+        for (Estudante estudante : estudantes){
+            System.out.println(estudante.getNome());
+            System.out.println("Média: "+estudante.getMedia());
+            System.out.println("Satus: "+estudante.getStatus());
+
+        }
+        
         Curso curso1 = new Curso("Licenciatura",2);
         Curso curso2 = new Curso("Computacao",10);
         
         Turma turma1 = new Turma("Turma A", curso1);
         Turma turma2 = new Turma("Turma B",curso2);
 
-        turma1.adicionarEstudante(estudante1);
-        turma1.adicionarEstudante(estudante2);
-        turma2.adicionarEstudante(estudante3);
-        turma2.adicionarEstudante(estudante4);
-        turma2.adicionarEstudante(estudante5);
+        //turma1.adicionarEstudante(estudantes[1]);
+        //turma1.adicionarEstudante(estudante2);
+        //turma2.adicionarEstudante(estudante3);
+        //turma2.adicionarEstudante(estudante4);
+        //turma2.adicionarEstudante(estudante5);
         
         curso1.adicionarTurma(turma1);
         curso2.adicionarTurma(turma2);
