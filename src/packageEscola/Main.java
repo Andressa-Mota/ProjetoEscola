@@ -65,26 +65,36 @@ public class Main {
         estudantes.get(2).definirNotas(5f,5f,3f);
         estudantes.get(3).definirNotas(1f,4f,7f);
         estudantes.get(4).definirNotas(81f,6f,7f);
-
+        System.out.println("_____________________________________");
         System.out.println("Lista Geral de Estudantes:");
         for (Estudante estudante : estudantes){
             System.out.println(estudante.getNome());
             System.out.println("Média: "+estudante.getMedia());
             System.out.println("Satus: "+estudante.getStatus());
-
+            
         }
         
         Curso curso1 = new Curso("Licenciatura",2);
-        Curso curso2 = new Curso("Computacao",10);
-        
-        Turma turma1 = new Turma("Turma A", curso1);
-        Turma turma2 = new Turma("Turma B",curso2);
+        Curso curso2 = new Curso("Computacao", 10);
 
-        //turma1.adicionarEstudante(estudantes[1]);
-        //turma1.adicionarEstudante(estudante2);
-        //turma2.adicionarEstudante(estudante3);
-        //turma2.adicionarEstudante(estudante4);
-        //turma2.adicionarEstudante(estudante5);
+        Turma turma1 = new Turma("Turma A", curso1);
+        Turma turma2 = new Turma("Turma B", curso2);
+          
+
+        turma1.adicionarEstudante(estudantes.get(0));
+        turma1.adicionarEstudante(estudantes.get(1));
+        turma2.adicionarEstudante(estudantes.get(2));
+        turma2.adicionarEstudante(estudantes.get(3));
+        turma2.adicionarEstudante(estudantes.get(4));
+
+        turma1.setEstatistica(); 
+        turma2.setEstatistica(); 
+        System.out.println("_____________________________________");
+        System.out.println("Status dos Estudantes da TURMA 1:");
+        turma1.printEstatistica();
+        System.out.println();
+        System.out.println("Status dos Estudantes da TURMA 2:");
+        turma2.printEstatistica();
         
         curso1.adicionarTurma(turma1);
         curso2.adicionarTurma(turma2);

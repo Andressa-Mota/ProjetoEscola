@@ -50,7 +50,7 @@ class Estudante extends Pessoa implements Printable {
         }
                 
         if(media < 7){
-            status="EM RECUPERACAO!";
+            status="EM RECUPERAÇÃO!";
             return;
         }
         
