@@ -19,6 +19,7 @@ public class Main {
         
         professores.add(new Professor("Luis Araujo", 987654321, "Rua x, 200", 123456789, 5555));
         professores.add(new Professor("Maria Roberta", 123456789, "Rua Z, 300", 987654321, 6666));
+        System.out.println("Professores Adicionados...");
 
         System.out.println("Lista de Professores:");
         for (int i = 0; i < professores.size(); i++) {
@@ -58,6 +59,7 @@ public class Main {
         estudantes.add(new Estudante("Lucas Almeida",0000031, "ruak",74981300));
         estudantes.add(new Estudante("Laura Santos",0000041, "ruaz",74981400));
         estudantes.add(new Estudante("Pedro Lima",0000051, "ruaX",74981500));
+        System.out.println("Alunos Adicionados...");
 
 
         estudantes.get(0).definirNotas(3f,2f,1f);
@@ -73,6 +75,8 @@ public class Main {
             System.out.println("Satus: "+estudante.getStatus());
             
         }
+        System.out.println("Média e Status dos alunos adicionados...");
+
         
         Curso curso1 = new Curso("Licenciatura",2);
         Curso curso2 = new Curso("Computacao", 10);
