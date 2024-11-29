@@ -115,5 +115,16 @@ public class Main {
         System.out.println();
         System.out.println("TURMA 2");
         turma2.printInfoturmas();
+        System.out.println();
+        System.out.println("_____________________________________");
+        System.out.println("TURMA 1 (APROVADOS E EM RECUPERÇÃO)");
+        turma1.listarEstudantesPorStatus("APROVADO!");
+        turma1.listarEstudantesPorStatus("EM RECUPERAÇÃO!");
+        System.out.println("_____________________________________");
+        System.out.println("TURMA 2 (APROVADOS E EM RECUPERÇÃO)");
+        turma2.listarEstudantesPorStatus("APROVADO!");
+        turma2.listarEstudantesPorStatus("EM RECUPERAÇÃO!");
     }
+
+  
 }

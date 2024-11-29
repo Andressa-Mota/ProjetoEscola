@@ -87,5 +87,15 @@ class Turma {
 
     }
 
+    public  void listarEstudantesPorStatus( String statusDesejado) {
+        System.out.println("Estudantes com status: " + statusDesejado);
+        for (Estudante estudante : estudantes) {
+            if (estudante.getStatus().equals(statusDesejado)) {
+                System.out.println(" - " + estudante.getNome() + " | " + estudante.mostraNotas() + " | Média: " + estudante.getMedia());
+            }
+        }
+        System.out.println();
+    }
+
 
 }
