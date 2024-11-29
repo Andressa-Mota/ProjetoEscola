@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-interface Printable {
-    void print();
-}
-
 public class Main {
     /**
      * @param args
@@ -91,6 +87,9 @@ public class Main {
         turma2.adicionarEstudante(estudantes.get(3));
         turma2.adicionarEstudante(estudantes.get(4));
 
+        turma1.vincularProfessor(professores.get(0));
+        turma2.vincularProfessor(professores.get(1));
+
         turma1.setEstatistica(); 
         turma2.setEstatistica(); 
         System.out.println("_____________________________________");
@@ -102,5 +101,13 @@ public class Main {
         
         curso1.adicionarTurma(turma1);
         curso2.adicionarTurma(turma2);
+
+        System.out.println("_____________________________________");
+        System.out.println("Informaçõs das turmas:");
+        System.out.println("TURMA 1");
+        turma1.printInfoturmas();
+        System.out.println();
+        System.out.println("TURMA 2");
+        turma2.printInfoturmas();
     }
 }

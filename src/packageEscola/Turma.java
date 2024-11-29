@@ -20,6 +20,7 @@ class Turma {
 
     public void vincularProfessor(Professor professor) {
         this.professor = professor;
+        this.professores.add(professor);
     }
 
     public void adicionarEstudante(Estudante estudante) {
@@ -64,5 +65,27 @@ class Turma {
         System.out.println(contRecuperacao + " Alunos em Recuperação");
 
     }
+
+    public void printInfoturmas(){
+        System.out.println("ESTUDANTES:");
+        if (estudantes.isEmpty()) {
+            System.out.println("Nenhum estudante vinculado.");
+        } else {
+            for (Estudante estudante : estudantes) {
+                System.out.println(" - " + estudante.getNome());
+            }
+        }
+
+        System.out.println("PROFESSOR:");
+    if (professores.isEmpty()) {
+        System.out.println("Nenhum professor vinculado.");
+    } else {
+        for (Professor professor : professores) {
+            System.out.println(" - " + professor.nome);
+        }
+    }
+
+    }
+
 
 }
