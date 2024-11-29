@@ -64,6 +64,12 @@ public class Main {
         estudantes.get(3).definirNotas(1f,4f,7f);
         estudantes.get(4).definirNotas(81f,6f,7f);
         System.out.println("_____________________________________");
+        System.out.println("Notas dos Estudantes:");
+        for (Estudante estudante : estudantes){
+            System.out.println(estudante.getNome() + " - " + estudante.mostraNotas());
+        }
+        System.out.println();
+        System.out.println("_____________________________________");
         System.out.println("Lista Geral de Estudantes:");
         for (Estudante estudante : estudantes){
             System.out.println(estudante.getNome());

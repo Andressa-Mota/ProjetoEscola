@@ -60,4 +60,7 @@ class Estudante extends Pessoa implements Printable {
     public String getStatus() {
         return status;
     }
+    public String mostraNotas() {
+        return "Notas: " + notas[0] + ", " + notas[1] + ", " + notas[2] ;
+    }
 }
