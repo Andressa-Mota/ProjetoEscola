@@ -63,4 +63,13 @@ class Estudante extends Pessoa implements Printable {
     public String mostraNotas() {
         return "Notas: " + notas[0] + ", " + notas[1] + ", " + notas[2] ;
     }
+    
+    public void alterarNotas(float nota1, float nota2, float nota3) {
+        System.out.println("Alterando as notas do estudante: " + nome);
+        definirNotas(nota1, nota2, nota3); 
+        System.out.println("Notas alteradas com sucesso!");
+        System.out.println("Novas notas: " + mostraNotas());
+        System.out.println("Nova média: " + getMedia());
+        System.out.println("Novo status: " + getStatus());
+    }
 }
