@@ -45,6 +45,7 @@ public class Main {
                 professorEscolhido.setcoordenador(true);
                 System.out.println(professorEscolhido.nome + " agora é o coordenador.");
                 curso1.vincularCoordenador(professorEscolhido);
+                Log.setLog("O usuário definiu "+professorEscolhido+" como novo coordenador de curso.");
             } else {
                 System.out.println("Escolha inválida! Escolha um número entre 1 e " + professores.size());
             }
@@ -67,6 +68,7 @@ public class Main {
         Curso cursoEscolhido = cursos.get(escolhaCurso - 1);
         cursoEscolhido.vincularCoordenador(professorEscolhido);
         System.out.println("Coordenador vinculado ao curso de " + cursoEscolhido.getNome());
+        Log.setLog("O usuário definiu "+professorEscolhido+" como novo coordenador do curso de "+cursoEscolhido);
     } else {
         System.out.println("Escolha inválida! Escolha um número entre 1 e " + cursos.size());
     }
@@ -88,7 +90,7 @@ public class Main {
         estudantes.add(new Estudante("Lucas Almeida",0000031, "ruak",74981300));
         estudantes.add(new Estudante("Laura Santos",0000041, "ruaz",74981400));
         estudantes.add(new Estudante("Pedro Lima",0000051, "ruaX",74981500));
-        System.out.println("Alunos Adicionados...");
+        
 
 
         estudantes.get(0).definirNotas(3f,2f,1f);
