@@ -5,12 +5,23 @@ class Curso {
     private String nome;
     private int qtdSemestre;
     private ArrayList<Turma> turmas;
-    
+    private Professor coordenador;
+
     public Curso(String nome,int qtdSemestre) {
         this.nome = nome;
         this.qtdSemestre = qtdSemestre;
         this.turmas= new ArrayList<Turma>();
+        
     }
+
+    public void vincularCoordenador(Professor coordenador) {
+        this.coordenador=coordenador;
+    }
+
+    public Professor getCoordenador() {
+        return coordenador;
+    }
+    
 
     public void adicionarTurma (Turma turma){
         this.turmas.add(turma);
@@ -35,4 +46,9 @@ class Curso {
     public ArrayList<Turma> getTurmas() {
         return turmas;
     } 
+
+    public void printCoordenador(){
+        System.out.println("Coordenador do curso de " +nome);
+        System.out.println(coordenador.nome);
+    }
 }

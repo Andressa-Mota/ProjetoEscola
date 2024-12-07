@@ -6,20 +6,20 @@ import java.util.ArrayList;
 class Turma {
     private String nome;
     private List<Professor> professores;
-    private Professor professor;
     private List<Estudante> estudantes;
     private Curso curso;
     private int contAprovado, contReprovado, contRecuperacao;
 
-    public Turma(String nome, Curso curso) {
+    public Turma(String nome,  Curso curso) {
         this.nome = nome;
         this.curso = curso;
+       
+        
         this.estudantes = new ArrayList<Estudante>();
         this.professores = new ArrayList<Professor>();
     }
 
     public void vincularProfessor(Professor professor) {
-        this.professor = professor;
         this.professores.add(professor);
     }
 

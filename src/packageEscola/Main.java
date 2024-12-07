@@ -12,11 +12,21 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<Professor> professores = new ArrayList<>();
-        
+        ArrayList<Curso> cursos = new ArrayList<>();
+
         professores.add(new Professor("Luis Araujo", 987654321, "Rua x, 200", 123456789, 5555));
         professores.add(new Professor("Maria Roberta", 123456789, "Rua Z, 300", 987654321, 6666));
+
+      
+        Curso curso1 = new Curso("Licenciatura",2);
+        Curso curso2 = new Curso("Computacao", 10);
+
+        cursos.add(curso1);
+        cursos.add(curso2);
+
         System.out.println("Professores Adicionados...");
 
+        Professor professorEscolhido = null;
         System.out.println("Lista de Professores:");
         for (int i = 0; i < professores.size(); i++) {
             System.out.println((i + 1) + ". " + professores.get(i).nome);
@@ -30,9 +40,11 @@ public class Main {
            
             if (escolha > 0 && escolha <= professores.size()) {
             
-                Professor professorEscolhido = professores.get(escolha - 1);
+                
+                professorEscolhido = professores.get(escolha - 1);
                 professorEscolhido.setcoordenador(true);
                 System.out.println(professorEscolhido.nome + " agora é o coordenador.");
+                curso1.vincularCoordenador(professorEscolhido);
             } else {
                 System.out.println("Escolha inválida! Escolha um número entre 1 e " + professores.size());
             }
@@ -40,6 +52,27 @@ public class Main {
             System.out.println("Entrada inválida! Por favor, insira um número.");
         }
 
+        System.out.println();
+        System.out.println("Adicione o coordenador à um curso");
+        System.out.println("Cursos disponíveis:");;
+        for (int i = 0; i < cursos.size(); i++) {
+            System.out.println((i + 1) + ". " + cursos.get(i).getNome());
+        }
+
+        System.out.print("Escolha o número do curso para vincular o coordenador: ");
+
+    if (scanner.hasNextInt()) {
+    int escolhaCurso = scanner.nextInt();
+    if (escolhaCurso > 0 && escolhaCurso <= cursos.size()) {
+        Curso cursoEscolhido = cursos.get(escolhaCurso - 1);
+        cursoEscolhido.vincularCoordenador(professorEscolhido);
+        System.out.println("Coordenador vinculado ao curso de " + cursoEscolhido.getNome());
+    } else {
+        System.out.println("Escolha inválida! Escolha um número entre 1 e " + cursos.size());
+    }
+} else {
+    System.out.println("Entrada inválida! Por favor, insira um número.");
+}
         
         System.out.println("\nStatus Atualizado dos Professores:");
         for (Professor professor : professores) {
@@ -78,10 +111,6 @@ public class Main {
             
         }
         System.out.println("Média e Status dos alunos adicionados...");
-
-        
-        Curso curso1 = new Curso("Licenciatura",2);
-        Curso curso2 = new Curso("Computacao", 10);
 
         Turma turma1 = new Turma("Turma A", curso1);
         Turma turma2 = new Turma("Turma B", curso2);
@@ -124,7 +153,11 @@ public class Main {
         System.out.println("TURMA 2 (APROVADOS E EM RECUPERÇÃO)");
         turma2.listarEstudantesPorStatus("APROVADO!");
         turma2.listarEstudantesPorStatus("EM RECUPERAÇÃO!");
+        System.out.println();
+        System.out.println("______________________________________________");
+        curso1.printCoordenador();
+        
     }
-
+    
   
 }
