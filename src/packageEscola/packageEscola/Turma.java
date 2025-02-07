@@ -44,15 +44,18 @@ class Turma {
     }
 
     public void setEstatistica() {
+        contAprovado = 0;
+        contReprovado = 0;
+        contRecuperacao = 0;
         for (Estudante estudante : estudantes) {
-            if (estudante.getStatus() == "REPROVADO!") {
+            if ( estudante.getNotas().getStatus() == "REPROVADO!") {
                 contReprovado++;
 
             }
-            if (estudante.getStatus() == "APROVADO!") {
+            if ( estudante.getNotas().getStatus() == "APROVADO!") {
                 contAprovado++;
             }
-            if (estudante.getStatus() == "EM RECUPERAÇÃO!") {
+            if ( estudante.getNotas().getStatus() == "EM RECUPERAÇÃO!") {
                 contRecuperacao++;
             }
 
@@ -90,8 +93,8 @@ class Turma {
     public  void listarEstudantesPorStatus( String statusDesejado) {
         System.out.println("Estudantes com status: " + statusDesejado);
         for (Estudante estudante : estudantes) {
-            if (estudante.getStatus().equals(statusDesejado)) {
-                System.out.println(" - " + estudante.getNome() + " | " + estudante.mostraNotas() + " | Média: " + estudante.getMedia());
+            if ( estudante.getNotas().getStatus().equals(statusDesejado)) {
+                System.out.println(" - " + estudante.getNome() + " | " +  estudante.getNotas().mostraNotas() + " | Média: " + estudante.getNotas().getMedia());
             }
         }
         System.out.println();

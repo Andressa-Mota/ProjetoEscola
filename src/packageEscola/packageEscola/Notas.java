@@ -1,16 +1,17 @@
 package packageEscola;
 
-
-class Estudante extends Pessoa implements Printable {
+public class Notas {
     private float notas[];
     private float media;
-    private String status;
+    private String status;  
+    private Estudante estudante;
 
-    public Estudante(String nome, int CPF, String endereco, int telefone) {
-        super(nome, CPF, endereco, telefone);
+
+  
+    public Notas(Estudante estudante) { 
         this.notas = new float[3]; 
+        this.estudante = estudante;
     }
-
     public void definirNotas(float nota1, float nota2, float nota3) {
         notas[0] = nota1;
         notas[1] = nota2;
@@ -19,15 +20,6 @@ class Estudante extends Pessoa implements Printable {
         calculaMedia();
         defineStatus();
     }
-    
-     public void print() {
-        System.out.println("Estudante:");
-        System.out.println("Nome: " + nome);
-        System.out.println("CPF: " + CPF);
-        System.out.println("Endereco: " + endereco);
-        System.out.println("Telefone: " + telefone);
-    }
-
     public float[] getNotas() {
         return notas;
     }
@@ -65,7 +57,7 @@ class Estudante extends Pessoa implements Printable {
     }
     
     public void alterarNotas(float nota1, float nota2, float nota3) {
-        System.out.println("Alterando as notas do estudante: " + nome);
+        System.out.println("Alterando as notas do estudante: " + estudante.getNome());
         definirNotas(nota1, nota2, nota3); 
         System.out.println("Notas alteradas com sucesso!");
         System.out.println("Novas notas: " + mostraNotas());

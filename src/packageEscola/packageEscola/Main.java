@@ -88,23 +88,25 @@ public class Main {
         estudantes.add(new Estudante("Laura Santos", 0000041, "ruaz", 74981400));
         estudantes.add(new Estudante("Pedro Lima", 0000051, "ruaX", 74981500));
 
-        estudantes.get(0).definirNotas(3f, 2f, 1f);
-        estudantes.get(1).definirNotas(2f, 5f, 6f);
-        estudantes.get(2).definirNotas(5f, 5f, 3f);
-        estudantes.get(3).definirNotas(1f, 4f, 7f);
-        estudantes.get(4).definirNotas(81f, 6f, 7f);
+        Notas notas = new Notas(estudantes.get(0));
+
+        estudantes.get(0).getNotas().definirNotas(3f, 2f, 1f);
+        estudantes.get(1).getNotas().definirNotas(2f, 5f, 6f);
+        estudantes.get(2).getNotas().definirNotas(5f, 5f, 3f);
+        estudantes.get(3).getNotas().definirNotas(1f, 4f, 7f);
+        estudantes.get(4).getNotas().definirNotas(8f, 6f, 7f);
         System.out.println("_____________________________________");
         System.out.println("Notas dos Estudantes:");
         for (Estudante estudante : estudantes) {
-            System.out.println(estudante.getNome() + " - " + estudante.mostraNotas());
+            System.out.println(estudante.getNome() + " - " + estudante.getNotas().mostraNotas());
         }
         System.out.println();
         System.out.println("_____________________________________");
         System.out.println("Lista Geral de Estudantes:");
         for (Estudante estudante : estudantes) {
             System.out.println(estudante.getNome());
-            System.out.println("Média: " + estudante.getMedia());
-            System.out.println("Satus: " + estudante.getStatus());
+            System.out.println("Média: " + estudante.getNotas().getMedia());
+            System.out.println("Satus: " + estudante.getNotas().getStatus());
 
         }
         System.out.println("Média e Status dos alunos adicionados...");
@@ -161,9 +163,9 @@ public class Main {
         if (curso1.getCoordenador().getNome().equalsIgnoreCase(nomeCoordenador)) {
             System.out.println("Bem vindo " + nomeCoordenador + ". Você possui permissão para alterar as notas. ");
             for (Estudante estudante : estudantes) {
-                if (estudante.getStatus().equalsIgnoreCase("EM RECUPERAÇÃO!")) {
+                if (estudante.getNotas().getStatus().equalsIgnoreCase("EM RECUPERAÇÃO!")) {
                     System.out.println("Estudante em Recuperação: " + estudante.getNome());
-                    System.out.println(estudante.mostraNotas());
+                    System.out.println(estudante.getNotas().mostraNotas());
                     System.out.println("Insira as novas notas:");
                     System.out.print("Nota 1: ");
                     float nota1 = scanner.nextFloat();
@@ -171,9 +173,9 @@ public class Main {
                     float nota2 = scanner.nextFloat();
                     System.out.print("Nota 3: ");
                     float nota3 = scanner.nextFloat();
-                    Log.setLog("O Coordenador " + professorEscolhido + " Modificou as notas do aluno "+estudante.getNome());
+                    Log.setLog("O Coordenador " + professorEscolhido + " Modificou as notas do aluno. "+estudante.getNome()+"Anteriores ( " +estudante.getNotas().mostraNotas()+") Novas ( Notas: "+ nota1 +","+ nota2 +","+ nota3+")");
 
-                    estudante.alterarNotas(nota1, nota2, nota3);
+                    estudante.getNotas().alterarNotas(nota1, nota2, nota3);
                 } 
                 
             }
@@ -188,8 +190,8 @@ public class Main {
         System.out.println();
         for (Estudante estudante : estudantes) {
             System.out.println(estudante.getNome());
-            System.out.println("Média: " + estudante.getMedia());
-            System.out.println("Satus: " + estudante.getStatus());
+            System.out.println("Média: " + estudante.getNotas().getMedia());
+            System.out.println("Satus: " + estudante.getNotas().getStatus());
 
         }
     }
